@@ -44,7 +44,7 @@ async def on_message(message):
                     for c in guild.channels:
                         if c.name == DEST:
                             await c.send(content = 'Author: {.author}\n'.format(message) + 'Message:\n' + message.content, files=attachments)
-                            await message.author.send("Your message: \n" + message.content)
+                            await message.author.send("Your message: \n" + message.content, files=attachments)
                             break
                     break
             
