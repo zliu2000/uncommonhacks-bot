@@ -35,16 +35,18 @@ async def on_message(message):
         if message.content == '$uh':
             await channel.send('Enter a question with $uh *question here*')
         else:
+            attachments = [await x.to_file() for x in message.attachments]
+            await message.delete()
             await channel.send("""Hello {.author}! Now I\'ll delete your question. A receipt was sent to our staff and direct messaged to you""".format(message))
 
             for guild in client.guilds:
                 if guild.name == GUILD:
                     for c in guild.channels:
                         if c.name == DEST:
-                            await c.send('Author: {.author}\n'.format(message) + 'Message:\n' + message.content)
+                            await c.send(content = 'Author: {.author}\n'.format(message) + 'Message:\n' + message.content, files=attachments)
                             await message.author.send("Your message: \n" + message.content)
                             break
                     break
-            await message.delete()
+            
 
 client.run(TOKEN)
