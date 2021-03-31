@@ -2,12 +2,12 @@
 import os
 
 import discord
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 #https://realpython.com/how-to-make-a-discord-bot-python/#creating-a-guild
 
 # https://discordpy.readthedocs.io/en/latest/ext/commands/api.html#discord.ext.commands.Bot
 
-load_dotenv()
+#load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 GUILD = os.getenv('DISCORD_GUILD')
 DEST = os.getenv('DEST')
